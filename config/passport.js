@@ -1,3 +1,6 @@
+// PasseportJS setup for user authentification
+// Using bcrypt for hash and salt
+
 let passport = require('passport')
 let Strategy = require('passport-local').Strategy
 let bcrypt = require('bcrypt')

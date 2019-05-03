@@ -1,0 +1,19 @@
+// Base
+
+html {
+    box-sizing: border-box;
+    font-family: $base-font-family;
+    font-size: $base-font-size;
+    line-height: 1.5;
+    overflow-y: scroll;
+    min-height: 100%;
+    word-wrap: break-word;
+}
+
+* {
+    &,
+    &:before,
+    &:after {
+        box-sizing: inherit;
+    }
+}
