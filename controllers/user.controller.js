@@ -28,17 +28,19 @@ exports.user_create = (req, res) => {
             res.redirect('/users/create')
         } else {
             var password = req.body.password
-            let salt = Math.floor(Math.random() * (15 - 6 + 1) ) + 6
-            bcrypt.hash(password, salt, (err, hash) => {
-            let user = new User({
-                username: req.body.username,
-                password: hash
-            })
-            user.save((err) => {
+            bcrypt.genSalt(10, (err, salt) => {
                 if (err) throw err
-                res.redirect('/')
+                bcrypt.hash(password, salt, (err, hash) => {
+                    let user = new User({
+                        username: req.body.username,
+                        password: hash
+                    })
+                    user.save((err) => {
+                        if (err) throw err
+                        res.redirect('/')
+                    })
+                })
             })
-        })
         }
     })
 }
