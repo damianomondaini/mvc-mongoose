@@ -31,6 +31,7 @@ exports.user_create = (req, res) => {
             bcrypt.genSalt(10, (err, salt) => {
                 if (err) throw err
                 bcrypt.hash(password, salt, (err, hash) => {
+                    if (err) throw err
                     let user = new User({
                         username: req.body.username,
                         password: hash
