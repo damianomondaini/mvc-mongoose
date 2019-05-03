@@ -27,7 +27,7 @@ exports.user_create = (req, res) => {
         if (user) {
             res.redirect('/users/create')
         } else {
-            var password = req.body.password
+            let password = req.body.password
             bcrypt.genSalt(10, (err, salt) => {
                 if (err) throw err
                 bcrypt.hash(password, salt, (err, hash) => {
