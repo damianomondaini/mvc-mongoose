@@ -34,7 +34,8 @@ exports.user_create = (req, res) => {
                     if (err) throw err
                     let user = new User({
                         username: req.body.username,
-                        password: hash
+                        password: hash,
+                        isAdmin: req.body.isAdmin
                     })
                     user.save((err) => {
                         if (err) throw err
