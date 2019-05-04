@@ -4,6 +4,8 @@ let router = express.Router()
 
 let main_controller = require('../controllers/main.controller')
 
-router.get('/', connect.ensureLoggedIn('/users/login'), main_controller.main_index)
+router.get('/', connect.ensureLoggedIn('/users/login'), (req, res) => {
+    res.render('main/index')
+})
 
 module.exports = router

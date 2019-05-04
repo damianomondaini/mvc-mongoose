@@ -9,8 +9,10 @@ let passport = require('passport')
 require('dotenv').config()
 require('./config/db')
 
+let requiresAdmin = require('./middleware/requires-admin')
 let main = require('./routes/main.route')
 let user = require('./routes/user.route')
+let admin = require('./routes/admin.route')
 
 let app = express()
 
@@ -33,9 +35,13 @@ require('./config/passport')
 app.use(passport.initialize())
 app.use(passport.session())
 
+// Use middleware
+app.all('/admin/*', requiresAdmin())
+
 // Routes
 app.use('/src', express.static('src'))
 app.use('/', main)
 app.use('/users', user)
+app.use('/admin', admin)
 
 app.listen(process.env.PORT)

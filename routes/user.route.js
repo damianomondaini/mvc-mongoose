@@ -3,7 +3,9 @@ let passport = require('passport')
 let router = express.Router()
 let user_controller = require('../controllers/user.controller')
 
-router.post('/create', user_controller.user_create)
+router.post('/create', user_controller.user_create, (req, res) => {
+    res.redirect('/')
+})
 router.get('/create', (req, res) => {
     res.render('user/create')
 })
