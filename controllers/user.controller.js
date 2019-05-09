@@ -1,13 +1,13 @@
 let bcrypt = require('bcrypt')
 let User = require('../models/user.model')
 
-/*exports.user_all = (req, res, next) => {
-    User.find((err, user) => {
+exports.user_count = (req, res, next) => {
+    User.count((err, count) => {
         if (err) throw err
-        res.locals['user'] = user
+        res.locals['userCount'] = count
         next()
     })
-}*/
+}
 
 exports.user_username = (username, cb) => {
     User.findOne({ username: username }, (err, user) => {

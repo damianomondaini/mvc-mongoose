@@ -10,6 +10,7 @@ require('dotenv').config()
 require('./config/db')
 
 let requiresAdmin = require('./middleware/requires-admin')
+
 let main = require('./routes/main.route')
 let user = require('./routes/user.route')
 let admin = require('./routes/admin.route')
@@ -36,7 +37,8 @@ app.use(passport.initialize())
 app.use(passport.session())
 
 // Use middleware
-app.all('/admin/*', requiresAdmin())
+//app.use('/admin', requiresAdmin())
+//app.all('/admin/*', requiresAdmin())
 
 // Routes
 app.use('/src', express.static('src'))
