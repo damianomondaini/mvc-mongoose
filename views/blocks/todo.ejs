@@ -1,0 +1,10 @@
+<ul class="list-group">
+    <% for (let i = 0; i < data.todo.length; i++) { %>
+        <li class="list-group-item dashb-todo">
+            <p><%= data.todo[i].todo %></p>
+            <a href="/admin/<%= data.todo[i].id %>/todo-remove">
+                <i class="fas fa-times"></i>
+            </a>
+        </li>
+    <% } %>
+</ul>

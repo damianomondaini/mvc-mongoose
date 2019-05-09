@@ -1,0 +1,57 @@
+.dashb-menu {
+    background-color: #2c3e50;
+}
+
+.dashb-menu_list {
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+.dashb-menu_item > a {
+    color: white;
+}
+
+.dashb-content > .container > .row > * {
+    margin-bottom: 50px;
+}
+
+.dashb-header-info > ul, .dashb-header-tools > ul {
+    padding: 0;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    margin: 0;
+}
+
+.dashb-header, .dashb-header-tools {
+    display: flex;
+    justify-content: space-between;
+}
+
+.dashb-header li {
+    padding: 1rem;
+    padding-top: 0;
+}
+
+.dashb-header p {
+    margin: 0;
+}
+
+.dashb-todo {
+    display: flex;
+    justify-content: space-between;
+}
+
+.dashb-todo > p {
+    margin: 0;
+}
+
+.dashb {
+    height: 100vh;
+}
+
+.dashb > .row {
+    height: 100%;
+}
