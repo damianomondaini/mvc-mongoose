@@ -4,7 +4,7 @@ let user_controller = require('../controllers/user.controller')
 let todo_controller = require('../controllers/todo.controller')
 
 router.get('/', user_controller.user_count, todo_controller.todo_all, (req, res) => {
-    res.render('admin/dashboard', { data: res.locals, board: 'main' })
+    res.render('admin/dashboard', { data: res.locals, board: 'main', user: req.user.username })
 })
 
 router.post('/todo-add', todo_controller.todo_create, (req, res) => {
