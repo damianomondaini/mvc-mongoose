@@ -1,42 +1,74 @@
-.dashb-menu {
-    background-color: #2c3e50;
+.dashb {
+    display: flex;
+    height: calc(100vh - #{$dashb-header-height});
+    overflow: hidden;
 }
 
-.dashb-menu_list {
+.dashb-panel {
+    width: 200px;
+    background-color: #34495e;
     height: 100%;
+    padding: 10px;
+}
+
+.dashb-panel_list {
     padding: 0;
     margin: 0;
     list-style: none;
 }
 
-.dashb-menu_item > a {
+.dashb-panel_item {
+    padding: 15px 10px 15px 10px;
+}
+
+.dashb-panel_item > a{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
     color: white;
 }
 
-.dashb-content > .container > .row > * {
+.dashb-panel_item i {
+    font-size: 2rem;
+}
+
+.dashb-main {
+    width: 100%;
+    background-color: #f2f2f2;
+    height: 100%;
+    overflow-y: scroll;
+    padding-top: 50px;
+}
+
+.dashb-main > .container > .row > * {
     margin-bottom: 50px;
 }
 
-.dashb-header-info > ul, .dashb-header-tools > ul {
-    padding: 0;
-    list-style: none;
-    display: flex;
-    align-items: center;
-    margin: 0;
+.dashb-main::-webkit-scrollbar {
+    display: none;
 }
 
-.dashb-header, .dashb-header-tools {
+.dashb-header {
+    height: $dashb-header-height;
     display: flex;
     justify-content: space-between;
 }
 
-.dashb-header li {
-    padding: 1rem;
-    padding-top: 0;
+.dashb-info, .dashb-tools {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    padding: 0;
+    margin: 0;
 }
 
-.dashb-header p {
+.dashb-info *, .dashb-tools * {
     margin: 0;
+}
+
+.dashb-info > li, .dashb-tools > li {
+    padding: 20px;
 }
 
 .dashb-todo {
@@ -44,14 +76,6 @@
     justify-content: space-between;
 }
 
-.dashb-todo > p {
+.dashb-todo * {
     margin: 0;
-}
-
-.dashb {
-    height: 100vh;
-}
-
-.dashb > .row {
-    height: 100%;
 }

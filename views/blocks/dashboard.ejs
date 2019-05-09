@@ -1,0 +1,45 @@
+<div class="container">
+    <div class="row">
+        <div class="col-lg-4">
+            <div class="card">
+                <h5 class="card-header">Users</h5>
+                <div class="card-body">
+                    <h5 class="card-title">Registered users</h5>
+                    <p class="card-text"><%= data.userCount %></p>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="card">
+                <h5 class="card-header">Overview</h5>
+                <div class="card-body">
+                    <h5 class="card-title">Overview title</h5>
+                    <p class="card-text">Overview text</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="card">
+                <h5 class="card-header">Overview</h5>
+                <div class="card-body">
+                    <h5 class="card-title">Overview title</h5>
+                    <p class="card-text">Overview text</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <h2>To do list</h2>
+            <form action="/admin/todo-add" method="POST">
+                <div class="input-group mb-3">
+                    <input type="text" name="todo" id="todo" class="form-control" placeholder="To do" aria-label="To do" aria-describedby="basic-addon2">
+                    <div class="input-group-append">
+                        <input class="btn btn-outline-secondary" type="submit" value="Submit"></input>
+                    </div>
+                </div>
+            </form>
+            <% include ../blocks/todo %>
+        </div>
+    </div>
+</div>

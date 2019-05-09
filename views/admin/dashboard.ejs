@@ -1,87 +1,38 @@
-<% include ../main/header %>
+<% include ../blocks/head %>
 
-<div class="container-fluid dashb">
-    <div class="row">
-        <div class="col-lg-2 dashb-menu">
-            <ul class="dashb-menu_list">
-                <li class="dashb-menu_item">
-                    <a href="/admin">
-                        <i class="fas fa-tachometer-alt"></i>
-                        Dashboard
-                    </a>
-                </li>
-                <li class="dashb-menu_item">
-                    <a href="#">
-                        <i class="fas fa-user"></i>
-                        Users
-                    </a>
-                </li>
-            </ul>
-        </div>
-        <div class="col-lg-10 dashb-content">
-            <div class="container">
-                <div class="row">
-                    <div class="col-12 dashb-header">
-                        <div class="dashb-header-info">
-                            <ul>
-                                <li><a href="/"><i class="fas fa-home"></i></a></li>
-                                <li><p><%= new Date().toDateString() %></p></li>
-                            </ul>
-                        </div>
-                        <div class="dashb-header-tools">
-                            <ul>
-                                <li><p>Hi USERNAME!</p></li>
-                                <li><a href="/users/logout"><i class="fas fa-sign-out-alt"></i></a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-4">
-                        <div class="card">
-                            <h5 class="card-header">Users</h5>
-                            <div class="card-body">
-                                <h5 class="card-title">Registered users</h5>
-                                <p class="card-text"><%= data.userCount %></p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="card">
-                            <h5 class="card-header">Overview</h5>
-                            <div class="card-body">
-                                <h5 class="card-title">Overview title</h5>
-                                <p class="card-text">Overview text</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="card">
-                            <h5 class="card-header">Overview</h5>
-                            <div class="card-body">
-                                <h5 class="card-title">Overview title</h5>
-                                <p class="card-text">Overview text</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-12">
-                        <h2>To do list</h2>
-                        <form action="/admin/todo-add" method="POST">
-                            <div class="input-group mb-3">
-                                <input type="text" name="todo" id="todo" class="form-control" placeholder="To do" aria-label="To do" aria-describedby="basic-addon2">
-                                <div class="input-group-append">
-                                    <input class="btn btn-outline-secondary" type="submit" value="Submit"></input>
-                                </div>
-                            </div>
-                        </form>
-                        <% include ../blocks/todo %>
-                    </div>
-                </div>
-            </div>
-        </div>
+<div class="dashb-header">
+    <ul class="dashb-info">
+        <li><h2>My App</h2></li>
+        <li><p><%= new Date().toDateString() %></p></li>
+        <li><a href="#"><i class="fas fa-plus"></i> Quick link</a></li>
+    </ul>
+    <ul class="dashb-tools">
+        <li><p>Hi USERNAME!</p></li>
+        <li><a href="/users/logout"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+    </ul>
+</div>
+<div class="dashb">
+    <div class="dashb-panel">
+        <ul class="dashb-panel_list">
+            <li class="dashb-panel_item">
+                <a href="/admin">
+                    <i class="fas fa-tachometer-alt"></i>
+                    Dashboard
+                </a>
+            </li>
+            <li class="dashb-panel_item">
+                <a href="#">
+                    <i class="fas fa-user"></i>
+                    Users
+                </a>
+            </li>
+        </ul>
+    </div>
+    <div class="dashb-main">
+        <% if (board === "main") { %>
+            <% include ../blocks/dashboard %>
+        <% } %>
     </div>
 </div>
 
-<% include ../main/footer %>
+<% include ../blocks/footer %>
