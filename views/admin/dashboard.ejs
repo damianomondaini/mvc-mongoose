@@ -31,7 +31,9 @@
     </div>
     <div class="dashb-main">
         <% if (board === "main") { %>
-            <% include ../blocks/dashboard %>
+            <% include ../blocks/dashboard-main %>
+        <% } else if (board === "users") { %>
+            <% include ../blocks/dashboard-users %>
         <% } %>
     </div>
 </div>
