@@ -20,7 +20,15 @@ $color-white: #ffffff !default;
 $color-black: #000000 !default;
 
 /*
+ * Breakpoint B4
+*/
+
+$bp-sm: 768px;
+$bp-md: 992px;
+
+/*
  * Other
 */
 
 $dashb-header-height: 50px;
+$dashb-panel-height: 80px;

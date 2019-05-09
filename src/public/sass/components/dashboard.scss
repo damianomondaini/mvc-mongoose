@@ -1,20 +1,43 @@
 .dashb {
     display: flex;
+    flex-direction: column;
     height: calc(100vh - #{$dashb-header-height});
     overflow: hidden;
+
+    @include breakpoint($bp-sm) {
+        flex-direction: unset;
+    }
 }
 
 .dashb-panel {
-    width: 200px;
+    width: 100%;
     background-color: #34495e;
-    height: 100%;
+    height: $dashb-panel-height;
     padding: 10px;
+    display: flex;
+    align-items: center;
+
+    @include breakpoint($bp-sm) {
+        width: 200px;
+        height: 100%;
+        align-items: flex-start;
+    }
 }
 
 .dashb-panel_list {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
     padding: 0;
     margin: 0;
     list-style: none;
+    width: 100%;
+    height: 100%;
+
+    @include breakpoint($bp-sm) {
+        flex-direction: column;
+        height: auto;
+    }
 }
 
 .dashb-panel_item {
@@ -30,7 +53,11 @@
 }
 
 .dashb-panel_item i {
-    font-size: 2rem;
+    font-size: 1rem;
+
+    @include breakpoint($bp-sm) {
+        font-size: 2rem;
+    }
 }
 
 .dashb-main {
@@ -52,15 +79,41 @@
 .dashb-header {
     height: $dashb-header-height;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
+
+    @include breakpoint($bp-sm) {
+        justify-content: space-between;
+    }
 }
 
-.dashb-info, .dashb-tools {
+.dashb-header *{
+    text-align: center;
+}
+
+.dashb-info {
+    display: none;
     list-style: none;
-    display: flex;
     align-items: center;
     padding: 0;
     margin: 0;
+
+    @include breakpoint($bp-sm) {
+        display: flex;
+    }
+}
+
+.dashb-tools {
+    width: 100%;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0;
+    margin: 0;
+
+    @include breakpoint($bp-sm) {
+        width: auto;
+    }
 }
 
 .dashb-info *, .dashb-tools * {
