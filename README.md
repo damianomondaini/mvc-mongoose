@@ -1,5 +1,6 @@
 # mvc-mongoose
 A simple boilerplate build with Node.JS for modern web app
+**You need to create and set up a .env file with your MongoDB URI and the listing port**
 * Node.js
 * Express
     * Build on a MVC structure using express routers
