@@ -42,6 +42,10 @@
 
 .dashb-panel_item {
     padding: 15px 10px 15px 10px;
+
+    @include breakpoint($bp-sm) {
+        width: 100%;
+    }
 }
 
 .dashb-panel_item > a{
