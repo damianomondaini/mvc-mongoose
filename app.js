@@ -37,8 +37,8 @@ app.use(passport.initialize())
 app.use(passport.session())
 
 // Use middleware
-app.use('/admin', requiresAdmin())
-app.all('/admin/*', requiresAdmin())
+//app.use('/admin', requiresAdmin())
+//app.all('/admin/*', requiresAdmin())
 
 // Routes
 app.use('/src', express.static('src'))

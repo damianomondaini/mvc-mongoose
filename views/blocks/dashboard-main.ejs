@@ -29,9 +29,9 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-12">
+        <div class="col-12" id="todo">
             <h2>To do list</h2>
-            <form action="/admin/todo-add" method="POST">
+            <form>
                 <div class="input-group mb-3">
                     <input type="text" name="todo" id="todo" class="form-control" placeholder="To do" aria-label="To do" aria-describedby="basic-addon2">
                     <div class="input-group-append">
@@ -40,6 +40,7 @@
                 </div>
             </form>
             <% include ../blocks/todo %>
+            <script src="/src/public/js/ajax/todo.js"></script>
         </div>
     </div>
 </div>

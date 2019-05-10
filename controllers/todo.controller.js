@@ -1,17 +1,17 @@
 let Todo = require('../models/todo.model')
 
-exports.todo_create = (req, res, next) => {
+exports.todo_create = (req, res) => {
     if (req.body.todo) {
         let todo = new Todo({
             todo: req.body.todo
         })
 
-        todo.save((err) => {
+        todo.save((err, todo) => {
             if (err) throw err
+            return todo
         })
-        next()
-    } else {
-        next()
+
+        res.json({todo: todo})
     }
 }
 
@@ -27,7 +27,6 @@ exports.todo_delete = (req, res, next) => {
     if (req.params.id) {
         Todo.findByIdAndRemove(req.params.id, (err) => {
             if (err) throw err
-            next()
         })
     }
 }

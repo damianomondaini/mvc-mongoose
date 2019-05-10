@@ -1,9 +1,9 @@
-<ul class="list-group">
+<ul class="list-group todo-list">
     <% for (let i = 0; i < data.todo.length; i++) { %>
-        <li class="list-group-item dashb-todo">
+        <li class="list-group-item dashb-todo" id="<%= data.todo[i]._id %>">
             <p><%= data.todo[i].todo %></p>
             <a href="/admin/<%= data.todo[i].id %>/todo-remove">
-                <i class="fas fa-times"></i>
+                <i class="fas fa-times delete-todo"></i>
             </a>
         </li>
     <% } %>
