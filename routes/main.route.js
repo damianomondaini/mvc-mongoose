@@ -8,4 +8,8 @@ router.get('/', connect.ensureLoggedIn('/users/login'), (req, res) => {
     res.render('main/index')
 })
 
+router.get('/test', (req, res) => {
+    res.render('main/test')
+})
+
 module.exports = router

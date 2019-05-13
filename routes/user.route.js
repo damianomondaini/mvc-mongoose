@@ -22,4 +22,8 @@ router.get('/logout', (req, res) => {
     res.redirect('/')
 })
 
+router.post('/update', user_controller.user_update)
+
+router.get('/:id/delete', user_controller.user_delete)
+
 module.exports = router

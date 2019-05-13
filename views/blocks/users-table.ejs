@@ -1,0 +1,11 @@
+<% for (let i = 0; i < data.userAll.length; i++) { %>
+    <tr class="user" id="<%= data.userAll[i]._id %>">
+        <td><%= data.userAll[i].username %></td>
+        <td><%= data.userAll[i].isAdmin %></td>
+        <td>
+            <button class="btn btn-primary update-user" data-toggle="modal" data-target="#userUpdate">
+                <i class="fas fa-user-edit"></i>
+            </button>
+        </td>
+    </tr>
+<% } %>
