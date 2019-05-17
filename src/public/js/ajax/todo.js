@@ -1,12 +1,19 @@
 function buildTodo(todo) {
-    let todoHtml = '<li class="list-group-item dashb-todo" id="' + todo._id + '"><p>' + todo.todo + '</p><a href="/admin/' + todo._id + '/todo-remove"><i class="fas fa-times delete-todo"></i></a></li>'
+    var todoHtml =
+    '<li class="list-group-item todo__item" data-id="' +
+    todo._id +
+    '"><span>' +
+    todo.todo +
+    '</span><a href="/admin/' +
+    todo._id +
+    '/todo-remove"><i class="fas fa-times todo__delete"></i></a></li>'
     return todoHtml
 }
 
 $(document).ready(() => {
     $('#todo').on('submit', (e) => {
         e.preventDefault()
-        let formData = $(e.target).serialize()
+        var formData = $(e.target).serialize()
         $('#todo > form').trigger('reset')
 
         $.ajax({
@@ -15,15 +22,15 @@ $(document).ready(() => {
             data: formData
         })
         .done((data) => {
-            let todo = buildTodo(data.todo)
-            $('.todo-list').append(todo)
+            var todo = buildTodo(data.todo)
+            $('.todo__list').append(todo)
         })
     })
 
-    $('#todo').on('click', '.delete-todo', function(e) {
+    $('#todo').on('click', '.todo__delete', function(e) {
         e.preventDefault()
-        let todo = $(this).closest('.dashb-todo')
-        let id = $(todo).attr('id')
+        var todo = $(this).closest('.todo__item')
+        var id = $(todo).attr('data-id')
 
         $.ajax({
             url: '/admin/' + id + '/todo-remove',

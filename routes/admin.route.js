@@ -14,4 +14,6 @@ router.get('/users', user_controller.user_all, (req, res) => {
 router.post('/todo-add', todo_controller.todo_create)
 router.get('/:id/todo-remove', todo_controller.todo_delete)
 
+router.post('/user-create', user_controller.user_createdByAdmin)
+
 module.exports = router

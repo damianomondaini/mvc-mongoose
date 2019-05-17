@@ -23,12 +23,15 @@ $color-black: #000000 !default;
  * Breakpoint B4
 */
 
+$bp-xs: 576px;
 $bp-sm: 768px;
 $bp-md: 992px;
+$bp-lg: 1200px;
 
 /*
- * Other
+ * Dashboard
 */
 
 $dashb-header-height: 50px;
 $dashb-panel-height: 80px;
+$dashb-primary: #34495e;

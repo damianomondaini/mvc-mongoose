@@ -24,7 +24,7 @@ exports.user_update = (req, res) => {
         if (user.username === req.body.username) {
             if (req.body.updatePassword == 'true') {
                 let password = req.body.password
-                bcrypt.genSalt(10, (err, salt) => {
+                bcrypt.genSalt(12, (err, salt) => {
                     if (err) throw err
                     bcrypt.hash(password, salt, (err, hash) => {
                         if (err) throw err
@@ -55,7 +55,7 @@ exports.user_update = (req, res) => {
                 } else {
                     if (req.body.updatePassword == 'true') {
                         let password = req.body.password
-                        bcrypt.genSalt(10, (err, salt) => {
+                        bcrypt.genSalt(12, (err, salt) => {
                             if (err) throw err
                             bcrypt.hash(password, salt, (err, hash) => {
                                 if (err) throw err
@@ -122,22 +122,21 @@ exports.user_id = (id, cb) => {
     })
 }
 
-exports.user_create = (req, res, next) => {
-    if (req.body.username && req.body.password && req.body.isAdmin) {
+exports.user_createdByUser = (req, res, next) => {
+    if (req.body.username && req.body.password) {
         User.findOne({ username: req.body.username}, (err, user) => {
             if (err) throw err
             if (user) {
                 res.redirect('/users/create')
             } else {
                 let password = req.body.password
-                bcrypt.genSalt(10, (err, salt) => {
+                bcrypt.genSalt(12, (err, salt) => {
                     if (err) throw err
                     bcrypt.hash(password, salt, (err, hash) => {
                         if (err) throw err
                         let user = new User({
                             username: req.body.username,
-                            password: hash,
-                            isAdmin: req.body.isAdmin
+                            password: hash
                         })
                         user.save((err) => {
                             if (err) throw err
@@ -149,5 +148,35 @@ exports.user_create = (req, res, next) => {
         })
     } else {
         res.redirect('/users/create')
+    }
+}
+
+exports.user_createdByAdmin = (req, res, next) => {
+    if (req.body.username && req.body.password && req.body.isAdmin) {
+        User.findOne({ username: req.body.username}, (err, user) => {
+            if (err) throw err
+            if (user) {
+                res.json({user: 'invalid'})
+            } else {
+                let password = req.body.password
+                bcrypt.genSalt(12, (err, salt) => {
+                    if (err) throw err
+                    bcrypt.hash(password, salt, (err, hash) => {
+                        if (err) throw err
+                        let user = new User({
+                            username: req.body.username,
+                            password: hash,
+                            isAdmin: req.body.isAdmin
+                        })
+                        user.save((err, user) => {
+                            if (err) throw err
+                            res.json({user: user})
+                        })
+                    })
+                })
+            }
+        })
+    } else {
+        res.json({user: 'invalid'})
     }
 }

@@ -1,27 +1,26 @@
 <% include ../blocks/head %>
 
 <div class="dashb-header">
-    <ul class="dashb-info">
-        <li><h2>My App</h2></li>
-        <li><p><%= new Date().toDateString() %></p></li>
-        <li><a href="#"><i class="fas fa-plus"></i> Quick link</a></li>
+    <ul class="dashb-header__tools">
+        <li class="dashb-header__item "><a href="/"><i class="fas fa-home"></i> <span class="dashb-header__tools-text">Home</span></a></li>
+        <li class="dashb-header__tools__date"><p class="dashb-header__tools-text"><%= new Date().toDateString() %></p></li>
+        <li class="dashb-header__item "><a href="#"><i class="fas fa-plus"></i> <span class="dashb-header__tools-text">Quick link</span></a></li>
     </ul>
-    <ul class="dashb-tools">
-        <li><p>Hi <%=/* user */%>!</p></li>
-        <li><a href="/"><i class="fas fa-home"></i> Home</a></li>
-        <li><a href="/users/logout"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+    <ul class="dashb-header__user">
+        <li class="dashb-header__item"><p class="dashb-header__user-text dashb-header__user-text--displayed">Hi Username <%=/* user */%>!</p></li>
+        <li class="dashb-header__item "><a href="/users/logout"><i class="fas fa-sign-out-alt"></i> <span class="dashb-header__user-text">Logout</span></a></li>
     </ul>
 </div>
 <div class="dashb">
-    <div class="dashb-panel">
-        <ul class="dashb-panel_list">
-            <li class="dashb-panel_item">
+    <div class="dashb__panel">
+        <ul class="dashb__panel-menu">
+            <li class="dashb__menu-item">
                 <a href="/admin">
                     <i class="fas fa-tachometer-alt"></i>
                     Dashboard
                 </a>
             </li>
-            <li class="dashb-panel_item">
+            <li class="dashb__menu-item">
                 <a href="/admin/users">
                     <i class="fas fa-user"></i>
                     Users
@@ -29,7 +28,7 @@
             </li>
         </ul>
     </div>
-    <div class="dashb-main">
+    <div class="dashb__main">
         <% if (board === "main") { %>
             <% include ../blocks/dashboard-main %>
         <% } else if (board === "users") { %>

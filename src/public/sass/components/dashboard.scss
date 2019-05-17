@@ -1,138 +1,149 @@
+// Header
+
+.dashb-header {
+    height: $dashb-header-height;
+    display: flex;
+    justify-content: space-between;
+}
+
+.dashb-header__tools {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.dashb-header__user {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.dashb-header__item {
+    padding: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.dashb-header__user-text {
+    margin: 0;
+    display: none;
+
+    @include mq($bp-xs) {
+        display: inline;
+    }
+}
+
+.dashb-header__tools-text {
+    margin: 0;
+    display: none;
+
+    @include mq($bp-xs) {
+        display: inline;
+    }
+}
+
+.dashb-header__tools__title {
+    display: none;
+
+    @include mq($bp-xs) {
+        display: inline;
+    }
+}
+
+.dashb-header__tools__date {
+    display: none;
+
+    @include mq($bp-xs) {
+        display: flex;
+        align-items: center;
+    }
+}
+
+.dashb-header__user-text--displayed {
+    display: inline;
+}
+
+// Dashboard
+
+/* Dashboard */
+
 .dashb {
     display: flex;
     flex-direction: column;
     height: calc(100vh - #{$dashb-header-height});
     overflow: hidden;
 
-    @include breakpoint($bp-sm) {
-        flex-direction: unset;
+    @include mq($bp-sm) {
+        flex-direction: row;
     }
 }
 
-.dashb-panel {
-    width: 100%;
-    background-color: #34495e;
+/* Panel */
+
+.dashb__panel {
     height: $dashb-panel-height;
-    padding: 10px;
+    background-color: $dashb-primary;
     display: flex;
     align-items: center;
+    padding: 20px;
 
-    @include breakpoint($bp-sm) {
-        width: 200px;
+    @include mq($bp-sm) {
         height: 100%;
-        align-items: flex-start;
+        width: 150px;
+        padding: 0;
     }
 }
 
-.dashb-panel_list {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
+.dashb__panel-menu {
+    list-style: none;
     padding: 0;
     margin: 0;
-    list-style: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 100%;
     height: 100%;
 
-    @include breakpoint($bp-sm) {
-        flex-direction: column;
-        height: auto;
+    @include mq($bp-sm) {
+        flex-flow: column;
+        justify-content: flex-start;
     }
 }
 
-.dashb-panel_item {
-    padding: 15px 10px 15px 10px;
+.dashb__menu-item {
+    padding: 1rem;
 
-    @include breakpoint($bp-sm) {
+    @include mq($bp-sm) {
         width: 100%;
     }
 }
 
-.dashb-panel_item > a{
+.dashb__menu-item > a {
     display: flex;
-    justify-content: center;
+    flex-flow: column;
     align-items: center;
-    flex-direction: column;
     color: white;
 }
 
-.dashb-panel_item i {
-    font-size: 1rem;
-
-    @include breakpoint($bp-sm) {
-        font-size: 2rem;
-    }
+.dashb__menu-item > a > i {
+    font-size: 1.5rem;
 }
 
-.dashb-main {
-    width: 100%;
-    background-color: #f2f2f2;
-    height: 100%;
+/* Main */
+
+.dashb__main {
     overflow-y: scroll;
-    padding-top: 50px;
-}
-
-.dashb-main > .container > .row > * {
-    margin-bottom: 50px;
-}
-
-.dashb-main::-webkit-scrollbar {
-    display: none;
-}
-
-.dashb-header {
-    height: $dashb-header-height;
-    display: flex;
-    justify-content: center;
-
-    @include breakpoint($bp-sm) {
-        justify-content: space-between;
-    }
-}
-
-.dashb-header *{
-    text-align: center;
-}
-
-.dashb-info {
-    display: none;
-    list-style: none;
-    align-items: center;
-    padding: 0;
-    margin: 0;
-
-    @include breakpoint($bp-sm) {
-        display: flex;
-    }
-}
-
-.dashb-tools {
     width: 100%;
-    list-style: none;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0;
-    margin: 0;
-
-    @include breakpoint($bp-sm) {
-        width: auto;
-    }
+    padding-top: 50px;
+    background-color: #f2f2f2;
 }
 
-.dashb-info *, .dashb-tools * {
-    margin: 0;
+.dashb__main::-webkit-scrollbar {
+    display: none;
 }
 
-.dashb-info > li, .dashb-tools > li {
-    padding: 20px;
-}
-
-.dashb-todo {
-    display: flex;
-    justify-content: space-between;
-}
-
-.dashb-todo * {
-    margin: 0;
+.dashb__main > .container > .row > * {
+    margin-bottom: 40px;
 }

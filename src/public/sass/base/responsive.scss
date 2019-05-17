@@ -1,4 +1,4 @@
-@mixin breakpoint($breakpoint-value) {
+@mixin mq($breakpoint-value) {
     @media (min-width: #{$breakpoint-value}) {
         @content;
     }
