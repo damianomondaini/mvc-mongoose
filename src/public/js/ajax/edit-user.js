@@ -74,8 +74,6 @@ $('.create-button').on('click', () => {
 })
 
 function updateUser() {
-    console.log(window.event.target);
-    
     user = $(window.event.target).closest('.user')
     username = user.children().eq(1).text()
     isAdmin = user.children().eq(2).text()
